@@ -12,7 +12,7 @@ async function setWebhook() {
   const bot = new Telegraf(process.env.BOT_TOKEN);
   
   // CORRECT URL with /api/bot endpoint
-  const webhookUrl = 'https://sniper-bot-seven.vercel.app/api/bot';
+  const webhookUrl = 'https://sniper-bot-gold.vercel.app/api/bot';
   
   try {
     console.log('🌐 Setting webhook to:', webhookUrl);
