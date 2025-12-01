@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node index.js",
-    "start": "node index.js",
-    "deploy": "vercel --prod",
-    "webhook": "node scripts/set-webhook.js"
+    "dev": "node src/bot/index.js",
+    "start": "node src/bot/index.js"
   },
   "dependencies": {
-    "telegraf": "^4.16.3",
-    "dotenv": "^16.4.5",
-    "ethers": "^6.13.2",
-     "crypto-js": "^4.2.0"
+    "telegraf": "^4.12.2",
+    "dotenv": "^16.3.0",
+    "crypto-js": "^4.2.0",
+    "moment": "^2.29.4",
+    "ethers": "^6.8.0"
   },
   "devDependencies": {
     "@vercel/node": "^3.1.7"
