@@ -7,7 +7,7 @@ async function setWebhook() {
   const bot = new Telegraf(process.env.BOT_TOKEN);
   
   // Your Vercel URL (update after deployment)
-  const webhookUrl = 'https://your-project-name.vercel.app/api/bot';
+  const webhookUrl = 'https://sniper-bot-seven.vercel.app/';
   
   try {
     console.log('🌐 Setting webhook to:', webhookUrl);
