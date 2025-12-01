@@ -5,16 +5,16 @@ import dotenv from 'dotenv';
 // import { fileURLToPath } from 'url';
 // import { dirname, join } from 'path';
 
-// Adjust import paths - use correct relative paths
-import { mainMenu, advancedMenu } from './keyboards/mainMenu.js';  // FIXED PATH
-import { startHandler } from './handlers/startHandler.js';  // FIXED PATH
-import { walletHandler } from './handlers/walletHandler.js';
-import { monitorHandler } from './handlers/monitorHandler.js';
-import { snipeHandler } from './handlers/snipeHandler.js';
-import { tradeHandler } from './handlers/tradeHandler.js';
-import { settingsHandler } from './handlers/settingsHandler.js';
-import { analyticsHandler } from './handlers/analyticsHandler.js';
-import { securityHandler } from './handlers/securityHandler.js';
+// CORRECT PATHS for your structure:
+import { mainMenu, advancedMenu } from '../src/bot/keyboards/mainMenu.js';
+import { startHandler } from '../src/bot/handlers/startHandler.js';
+import { walletHandler } from '../src/bot/handlers/walletHandler.js';
+import { monitorHandler } from '../src/bot/handlers/monitorHandler.js';
+import { snipeHandler } from '../src/bot/handlers/snipeHandler.js';
+import { tradeHandler } from '../src/bot/handlers/tradeHandler.js';
+import { settingsHandler } from '../src/bot/handlers/settingsHandler.js';
+import { analyticsHandler } from '../src/bot/handlers/analyticsHandler.js';
+import { securityHandler } from '../src/bot/handlers/securityHandler.js';
 // import { validateEncryptionKey } from './utils/encryption.js';
 // import { initDatabase } from './utils/database.js';
 
