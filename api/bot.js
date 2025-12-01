@@ -1,24 +1,22 @@
 import { Telegraf, session } from 'telegraf';
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
 
-// Fix for ES modules __dirname
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Remove fileURLToPath imports - not needed
+// import { fileURLToPath } from 'url';
+// import { dirname, join } from 'path';
 
-// Adjust import paths for Vercel
-import { mainMenu, advancedMenu } from '../keyboards/mainMenu.js';
-import { startHandler } from '../handlers/startHandler.js';
-import { walletHandler } from '../handlers/walletHandler.js';
-import { monitorHandler } from '../handlers/monitorHandler.js';
-import { snipeHandler } from '../handlers/snipeHandler.js';
-import { tradeHandler } from '../handlers/tradeHandler.js';
-import { settingsHandler } from '../handlers/settingsHandler.js';
-import { analyticsHandler } from '../handlers/analyticsHandler.js';
-import { securityHandler } from '../handlers/securityHandler.js';
-// import { validateEncryptionKey } from '../utils/encryption.js';
-// import { initDatabase } from '../utils/database.js';
+// Adjust import paths - use correct relative paths
+import { mainMenu, advancedMenu } from './keyboards/mainMenu.js';  // FIXED PATH
+import { startHandler } from './handlers/startHandler.js';  // FIXED PATH
+import { walletHandler } from './handlers/walletHandler.js';
+import { monitorHandler } from './handlers/monitorHandler.js';
+import { snipeHandler } from './handlers/snipeHandler.js';
+import { tradeHandler } from './handlers/tradeHandler.js';
+import { settingsHandler } from './handlers/settingsHandler.js';
+import { analyticsHandler } from './handlers/analyticsHandler.js';
+import { securityHandler } from './handlers/securityHandler.js';
+// import { validateEncryptionKey } from './utils/encryption.js';
+// import { initDatabase } from './utils/database.js';
 
 dotenv.config();
 
@@ -106,48 +104,48 @@ bot.hears('📋 Portfolio', async (ctx) => {
 
 bot.hears('🚀 Quick Actions', async (ctx) => {
     await ctx.reply(`
-  🚀 **Quick Actions**
+🚀 **Quick Actions**
 
-  **Available Quick Commands:**
+**Available Quick Commands:**
 
-  💰 **Balance Check**
-  /balance - Check all wallet balances
+💰 **Balance Check**
+/balance - Check all wallet balances
 
-  📊 **Portfolio View** 
-  /portfolio - View portfolio summary
+📊 **Portfolio View** 
+/portfolio - View portfolio summary
 
-  🎯 **Quick Trading**
-  /buy <contract> <amount> - Quick buy
-  /sell <contract> <percentage> - Quick sell
+🎯 **Quick Trading**
+/buy <contract> <amount> - Quick buy
+/sell <contract> <percentage> - Quick sell
 
-  📈 **Monitoring**
-  /monitor <contract> - Add token to monitor
+📈 **Monitoring**
+/monitor <contract> - Add token to monitor
 
-  ⚡ **Auto Sniping**
-  /snipe <contract> <amount> <trigger> - Setup quick snipe
+⚡ **Auto Sniping**
+/snipe <contract> <amount> <trigger> - Setup quick snipe
 
-  **Use the commands above or menu buttons for full features!**
+**Use the commands above or menu buttons for full features!**
     `, { parse_mode: 'Markdown' });
 });
 
 bot.hears('📊 Market Data', async (ctx) => {
     await ctx.reply(`
-  📊 **Market Data**
+📊 **Market Data**
 
-  **Coming Soon!**
+**Coming Soon!**
 
-  **Planned Market Features:**
-  • Live price feeds
-  • Market trends
-  • Volume analysis
-  • Top gainers/losers
-  • New token alerts
-  • Liquidity tracking
+**Planned Market Features:**
+• Live price feeds
+• Market trends
+• Volume analysis
+• Top gainers/losers
+• New token alerts
+• Liquidity tracking
 
-  **For now, use:**
-  • Token Monitoring for individual tokens
-  • Analytics for portfolio data
-  • Quick Trade for execution
+**For now, use:**
+• Token Monitoring for individual tokens
+• Analytics for portfolio data
+• Quick Trade for execution
     `, { parse_mode: 'Markdown' });
 });
 
@@ -237,14 +235,14 @@ async function handleQuickBuy(ctx, text) {
     }
     
     await ctx.reply(`
-  🟢 **Quick Buy Setup**
+🟢 **Quick Buy Setup**
 
-  **Contract:** ${contract}
-  **Amount:** ${amount} MON
+**Contract:** ${contract}
+**Amount:** ${amount} MON
 
-  **Quick buying feature coming soon!**
+**Quick buying feature coming soon!**
 
-  For now, use the "⚡ Quick Trade" menu for trading.
+For now, use the "⚡ Quick Trade" menu for trading.
     `, { parse_mode: 'Markdown' });
 }
 
@@ -256,14 +254,14 @@ async function handleQuickSell(ctx, text) {
     }
     
     await ctx.reply(`
-  🔴 **Quick Sell Setup**
+🔴 **Quick Sell Setup**
 
-  **Contract:** ${contract}
-  **Sell:** ${percentage}%
+**Contract:** ${contract}
+**Sell:** ${percentage}%
 
-  **Quick selling feature coming soon!**
+**Quick selling feature coming soon!**
 
-  For now, use the "⚡ Quick Trade" menu for trading.
+For now, use the "⚡ Quick Trade" menu for trading.
     `, { parse_mode: 'Markdown' });
 }
 
@@ -275,13 +273,13 @@ async function handleQuickMonitor(ctx, text) {
     }
     
     await ctx.reply(`
-  📊 **Quick Monitor**
+📊 **Quick Monitor**
 
-  **Contract:** ${contract}
+**Contract:** ${contract}
 
-  **Token monitoring feature coming soon!**
+**Token monitoring feature coming soon!**
 
-  For now, use the "📊 Token Monitoring" menu.
+For now, use the "📊 Token Monitoring" menu.
     `, { parse_mode: 'Markdown' });
 }
 
@@ -293,15 +291,15 @@ async function handleQuickSnipe(ctx, text) {
     }
     
     await ctx.reply(`
-  🎯 **Quick Snipe Setup**
+🎯 **Quick Snipe Setup**
 
-  **Contract:** ${contract}
-  **Amount:** ${amount} MON
-  **Trigger:** ${trigger || 'Not specified'}
+**Contract:** ${contract}
+**Amount:** ${amount} MON
+**Trigger:** ${trigger || 'Not specified'}
 
-  **Auto snipe feature coming soon!**
+**Auto snipe feature coming soon!**
 
-  For now, use the "🎯 Auto Sniper" menu.
+For now, use the "🎯 Auto Sniper" menu.
     `, { parse_mode: 'Markdown' });
 }
 
@@ -333,62 +331,62 @@ async function handleQuickPortfolio(ctx) {
 
 async function handleHelpCommand(ctx) {
     const helpMessage = `
-  🤖 **Monad Sniper Bot - Complete Help**
+🤖 **Monad Sniper Bot - Complete Help**
 
-  **Main Menu Features:**
+**Main Menu Features:**
 
-  👛 **Wallet Management**
-  • Connect encrypted wallets
-  • Check balances
-  • Portfolio overview
-  • Multi-wallet support
+👛 **Wallet Management**
+• Connect encrypted wallets
+• Check balances
+• Portfolio overview
+• Multi-wallet support
 
-  📊 **Token Monitoring**
-  • Add tokens to monitor
-  • Price tracking
-  • Liquidity alerts
-  • Volume analysis
+📊 **Token Monitoring**
+• Add tokens to monitor
+• Price tracking
+• Liquidity alerts
+• Volume analysis
 
-  🎯 **Auto Sniper**
-  • Setup auto-buy triggers
-  • Liquidity sniping
-  • Safety rules
-  • Snipe analytics
+🎯 **Auto Sniper**
+• Setup auto-buy triggers
+• Liquidity sniping
+• Safety rules
+• Snipe analytics
 
-  ⚡ **Quick Trade**
-  • Instant buy/sell
-  • Limit orders
-  • Stop-loss protection
-  • Take-profit targets
+⚡ **Quick Trade**
+• Instant buy/sell
+• Limit orders
+• Stop-loss protection
+• Take-profit targets
 
-  📈 **Analytics**
-  • Portfolio performance
-  • Trade history
-  • P&L reports
-  • Risk analysis
+📈 **Analytics**
+• Portfolio performance
+• Trade history
+• P&L reports
+• Risk analysis
 
-  ⚙️ **Settings**
-  • Gas settings
-  • Slippage configuration
-  • Notifications
-  • Trading preferences
+⚙️ **Settings**
+• Gas settings
+• Slippage configuration
+• Notifications
+• Trading preferences
 
-  🛡️ **Security**
-  • Encryption status
-  • Session management
-  • Security alerts
-  • Access logs
+🛡️ **Security**
+• Encryption status
+• Session management
+• Security alerts
+• Access logs
 
-  **Quick Commands:**
-  /balance - Check balances
-  /portfolio - View portfolio
-  /buy <contract> <amount> - Quick buy
-  /sell <contract> <percentage> - Quick sell
-  /monitor <contract> - Add to monitoring
-  /snipe <contract> <amount> <trigger> - Setup snipe
-  /help - Show this help
+**Quick Commands:**
+/balance - Check balances
+/portfolio - View portfolio
+/buy <contract> <amount> - Quick buy
+/sell <contract> <percentage> - Quick sell
+/monitor <contract> - Add to monitoring
+/snipe <contract> <amount> <trigger> - Setup snipe
+/help - Show this help
 
-  Use the menu buttons for full features!
+Use the menu buttons for full features!
     `;
 
     await ctx.reply(helpMessage, { 
@@ -418,7 +416,8 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json({ 
       status: '🤖 Monad Sniper Bot is running!',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      note: 'Send POST requests from Telegram webhook'
     });
   }
 
@@ -441,14 +440,6 @@ export default async function handler(req, res) {
   // Method not allowed
   return res.status(405).json({ error: 'Method not allowed' });
 }
-
-// DON'T use bot.launch() on Vercel - it uses webhooks instead
-// Remove these lines from your Vercel deployment:
-// bot.launch().then(() => {
-//   console.log('🤖 Bot is RUNNING! All menus should work now.');
-// }).catch((error) => {
-//   console.log('❌ Bot failed:', error.message);
-// });
 
 // Graceful shutdown (optional for Vercel)
 process.once('SIGINT', () => bot.stop('SIGINT'));
