@@ -2,21 +2,23 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.js",
+      "src": "api/bot.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
+      "src": "/api/bot",
+      "dest": "/api/bot.js",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
       "src": "/api/(.*)",
       "dest": "/api/$1"
     },
     {
-      "src": "/",
-      "dest": "/api/index.js"
+      "src": "/(.*)",
+      "dest": "/api/bot.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
