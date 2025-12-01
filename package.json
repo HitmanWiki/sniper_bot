@@ -1,40 +1,22 @@
 {
   "name": "monad-sniper-bot",
   "version": "1.0.0",
-  "description": "Advanced Telegram sniper bot for Monad chain",
   "type": "module",
   "scripts": {
-    "start": "node src/bot/index.js",
-    "dev": "nodemon src/bot/index.js",
-    "test": "node src/test/testBot.js"
+    "dev": "node index.js",
+    "start": "node index.js",
+    "deploy": "vercel --prod",
+    "webhook": "node scripts/set-webhook.js"
   },
   "dependencies": {
-    "telegraf": "^4.12.2",
-    "node-cron": "^3.0.2",
-    "axios": "^1.6.0",
-    "ethers": "^6.8.0",
-    "dotenv": "^16.3.0",
-    "crypto-js": "^4.2.0",
-    "lowdb": "^7.0.1",
-    "ccxt": "^4.1.59",
-    "web3": "^4.2.0",
-    "chart.js": "^4.4.0",
-    "node-html-to-image": "^3.3.0",
-    "moment": "^2.29.4",
-    "canvas": "^2.11.2"
+    "telegraf": "^4.16.3",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
-    
+    "@vercel/node": "^3.1.7"
   },
-  "keywords": [
-    "monad",
-    "sniper",
-    "telegram",
-    "bot",
-    "trading",
-    "crypto"
-  ],
-  "author": "Sigma Win",
-  "license": "MIT"
+  "engines": {
+    "node": ">=18"
+  }
 }
